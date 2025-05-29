@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Old City Tour | Baku Tours</title>
+  <meta name="description" content="Explore Baku's Old City with a certified local guide. Discover ancient walls, palaces, and UNESCO heritage sites.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('assets/images/qehbe.png') top center/cover no-repeat #FFD700;
+  background-attachment: fixed;
+  color: #181818;
+  width: 100%;
+  overflow-x: hidden;
+}
+.topbar {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 100px;
+  background: #fffbe6;
+  box-shadow: 0 4px 24px #18181813;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-bottom: 2px solid #FFD70022;
+}
+.topbar-corner {
+  position: absolute;
+  top: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 12;
+}
+.topbar-left { left: 0; padding-left: 32px; }
+.topbar-right { right: 0; padding-right: 32px; }
+.logo-title {
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-title img {
+  width: 66px; height: 66px; border-radius: 50%; object-fit: cover;
+  background: #FFD700; border: 2.5px solid #18181822;
+}
+.logo-title span {
+  font-size: 2.1rem; font-weight: 800; color: #222; letter-spacing: 1px;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif; line-height: 1;
+}
+.main-nav {
+  display: flex; gap: 24px; justify-content: center; align-items: center; margin: 0 auto; z-index: 11; position: relative;
+}
+.main-nav a {
+  background: #fffbe6; color: #181818; font-size: 19px; font-weight: 600;
+  padding: 15px 30px; border-radius: 16px; box-shadow: 0 2px 8px #18181812;
+  text-decoration: none; border: none; transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: flex; align-items: center; gap: 7px;
+}
+.main-nav a.active,
+.main-nav a:hover {
+  background: #FFD700; color: #181818; box-shadow: 0 6px 18px #FFD70033;
+}
+.lang-selector-dropdown select {
+  font-family: 'Montserrat', sans-serif; font-size: 17px; padding: 7px 18px;
+  border-radius: 6px; background: #252525; color: #FFD700; border: 1px solid #FFD700;
+  outline: none; cursor: pointer; transition: border 0.2s, background 0.2s;
+}
+.lang-selector-dropdown select:focus { border: 2px solid #FFD700; background: #333; }
+.site-footer {
+  width: 100vw; position: fixed; left: 0; bottom: 0; background: #fffbe6;
+  color: #222; text-align: center; padding: 18px 0 12px 0; font-size: 1em;
+  border-top: 1.5px solid #FFD70044; box-shadow: 0 -2px 18px #FFD70028; z-index: 100;
+}
+.iceriseher-bigbox {
+  background: #fffef5;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px #18181818;
+  padding: 36px 38px 38px 38px;
+  max-width: 900px;
+  width:100%;
+  margin: 60px auto 90px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border: 2.5px solid #FFE066;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.iceriseher-gallery-slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  user-select:none;
+}
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 670px;
+}
+.main-photo {
+  width: 100%;
+  max-width: 670px;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 4px solid #FFE066;
+  background: #fffbe6;
+  box-shadow: 0 4px 18px #FFD70025;
+  margin-bottom: 16px;
+  transition: 0.25s;
+  display: block;
+  cursor:pointer;
+}
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  color: #FFD700;
+  background: rgba(255,255,255,0.77);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.17s, color 0.17s;
+  z-index: 2;
+}
+.slider-arrow:hover { background: #FFD700; color: #222; }
+.slider-arrow.left { left: 8px; }
+.slider-arrow.right { right: 8px; }
+.thumb-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.thumb {
+  width: 80px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: border 0.15s, opacity 0.15s, transform 0.13s;
+}
+.thumb.selected,
+.thumb:hover {
+  border: 2px solid #FFD700;
+  opacity: 1;
+  transform: scale(1.07);
+}
+.iceriseher-bigbox-content {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.iceriseher-bigbox h2 {
+  margin:0 0 18px 0; font-size:2.1rem; font-weight:900; color:#222; letter-spacing:1.2px; text-align:center;
+}
+.iceriseher-bigbox p, .iceriseher-bigbox ul {
+  font-size:1.13em; color:#444; margin-bottom: 10px; line-height:1.7; text-align:center;
+}
+.price-badge {
+  background: #FFD700;
+  color: #222;
+  font-weight: bold;
+  font-size: 1.18em;
+  padding: 11px 36px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px #FFD70028;
+  letter-spacing: 1.1px;
+  display: inline-block;
+}
+.iceriseher-cta-btn {
+  margin-top:5px; background:#ffe066; color:#222; font-weight:800;
+  padding:15px 44px; border-radius:12px; text-decoration:none; font-size:1.14em;
+  box-shadow:0 4px 14px #ffec992a; transition:background 0.18s, color 0.18s;
+  display:inline-block; border:2.5px solid #FFE066;
+}
+.iceriseher-cta-btn:hover { background: #FFD700; color: #181818; }
+@media (max-width: 1100px) {
+  .iceriseher-bigbox { max-width: 99vw; }
+  .slider-wrapper, .main-photo { max-width: 99vw; }
+}
+@media (max-width: 950px) {
+  .iceriseher-bigbox { padding: 22px 3vw 22px 3vw; }
+  .slider-wrapper, .main-photo { max-width: 99vw; }
+  .main-photo { height: 32vw; min-height: 130px; }
+  .thumb { width: 45px; height: 30px; }
+  .iceriseher-bigbox h2 { font-size: 1.3rem; }
+}
+@media (max-width: 600px) {
+  .topbar-left { padding-left: 8px; }
+  .topbar-right { padding-right: 8px; }
+  .iceriseher-bigbox { padding: 10px 2vw; }
+  .slider-wrapper, .main-photo { max-width: 98vw; }
+  .main-photo { height: 32vw; min-height: 80px; }
+  .thumb-row { gap: 4px; }
+  .thumb { width: 32px; height: 22px; }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="topbar-corner topbar-left">
+        <div class="logo-title">
+          <img src="assets/images/tour1.jpg" alt="Baku Tours Logo">
+          <span>Baku Tours</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" data-section="home"><i class="fa fa-home"></i> Home</a>
+        <a href="index.html#tours" data-section="tours" class="active"><i class="fa fa-map-signs"></i> Tours</a>
+        <a href="index.html#contact" data-section="contact"><i class="fa fa-envelope"></i> Contact</a>
+        <a href="index.html#about" data-section="about"><i class="fa fa-info-circle"></i> About</a>
+      </nav>
+      <div class="topbar-corner topbar-right">
+        <div class="lang-selector-dropdown">
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="tr">Türkçe</option>
+            <option value="az">Azərbaycanca</option>
+            <option value="ru">Русский</option>
+            <option value="ar">العربية</option>
+            <option value="zh-CN">中文</option>
+            <option value="ur">اردو</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="iceriseher-bigbox">
+        <div class="iceriseher-bigbox-content">
+  <h2>Old City (Icherisheher) Tour</h2>
+  <div class="iceriseher-gallery-slider">
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" onclick="slidePhoto(-1)"><i class="fa fa-angle-left"></i></button>
+            <img id="main-photo" class="main-photo" src="assets/images/iceriseher/ics1.jpg" alt="Ana Foto" onclick="openModal()">
+            <button class="slider-arrow right" onclick="slidePhoto(1)"><i class="fa fa-angle-right"></i></button>
+          </div>
+          <div class="thumb-row">
+            <img src="assets/images/iceriseher/ics1.jpg" class="thumb selected" alt="Thumb 1" onclick="selectPhoto(0)">
+            <img src="assets/images/iceriseher/ics2.jpg" class="thumb" alt="Thumb 2" onclick="selectPhoto(1)">
+            <img src="assets/images/iceriseher/ics3.jpg" class="thumb" alt="Thumb 3" onclick="selectPhoto(2)">
+            <img src="assets/images/iceriseher/ics4.jpg" class="thumb" alt="Thumb 4" onclick="selectPhoto(3)">
+            <img src="assets/images/iceriseher/ics5.jpg" class="thumb" alt="Thumb 5" onclick="selectPhoto(4)">
+            <img src="assets/images/iceriseher/ics6.jpg" class="thumb" alt="Thumb 6" onclick="selectPhoto(5)">
+          </div>
+        </div>
+<p>
+  Icherisheher, also known as the Old City or Inner City, is the ancient, walled core of Baku, the capital of Azerbaijan. A UNESCO World Heritage Site since 2000, Icherisheher is a living testament to thousands of years of history, culture, and architectural evolution. Archaeological evidence suggests that the area has been inhabited since at least the 8th–7th centuries BCE, making it one of the oldest continuously populated places in the region.
+</p>
+<p>
+  The most significant period in Icherisheher’s history came during the 12th century, when Baku rose to prominence under the Shirvanshah dynasty. Originally based in Shamakhi, the Shirvanshahs were forced to relocate their capital to Baku following a devastating earthquake in Shamakhi in 1191. From that point forward, Baku—and specifically Icherisheher—became the political, cultural, and economic center of the Shirvan state.
+</p>
+<p>
+  It was during this period of prosperity that some of the Old City’s most iconic landmarks were constructed:
+  <ul>
+    <li><b>The Palace of the Shirvanshahs (15th century):</b> This magnificent complex includes the royal palace, a mosque with a minaret, a mausoleum, a bathhouse, and the tomb of the philosopher Seyid Yahya Bakuvi. Built during the reign of Khalilullah I (1417–1462), the palace represents the height of medieval Azerbaijani architecture.</li>
+    <li><b>Maiden Tower (Qız Qalası):</b> A mysterious and iconic structure believed to date back to between the 7th and 12th centuries, though some scholars argue for even earlier origins. Its exact purpose is debated—suggestions include a Zoroastrian fire temple, a defensive tower, or a celestial observatory.</li>
+    <li><b>Juma Mosque:</b> Originally constructed in the 12th century, it was rebuilt in the 19th century. It stands on a site believed to have hosted a Zoroastrian temple before Islam’s spread.</li>
+    <li><b>Caravanserais:</b> Such as the Multani and Bukhara Caravanserais (14th–15th centuries), which served as inns for traders traveling along the Silk Road.</li>
+    <li><b>Hammams (Bathhouses):</b> Including the Haji Gaib bathhouse from the 14th century, reflecting the advanced urban infrastructure of medieval Baku.</li>
+  </ul>
+</p>
+<p>
+  Encircled by robust 12th-century defensive walls, parts of which were reinforced during the 16th century under Safavid rule, Icherisheher has endured invasions, political upheavals, and modernization. Yet it retains its medieval character, with narrow cobbled streets, stone houses, and a vibrant local community still residing within its walls.
+</p>
+<p>
+  Today, Icherisheher is not only a precious historical district but also a symbol of Azerbaijan's national heritage—a place where the past meets the present, and where every corner tells a story that spans centuries.
+</p>
+  <ul class="tour-feature-list centered">
+    <li>
+      <span class="icon"><i class="fa-regular fa-clock"></i></span>
+      <span class="text"><b>15:00 pm - 16:30 pm</b></span>
+    </li>
+    <li>
+      <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+      <span class="text">Private and group options</span>
+    </li>
+    <li>
+      <span class="icon"><i class="fa-solid fa-shield-halved"></i></span>
+      <span class="text">Safe, licensed, and insured</span>
+    </li>
+    <li>
+      <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+      <span class="text">
+        <a href="https://wa.me/994775752626" target="_blank" class="whatsapp-link">
+          Easy booking via WhatsApp
+        </a>
+      </span>
+    </li>
+  </ul>
+
+  <div class="included-row">
+    <span class="included-label">
+      <i class="fa-solid fa-check"></i> <b>Included:</b>
+    </span>
+    <div class="included-list-horizontal">
+      <div class="item"><i class="fa-solid fa-user-tie"></i> Professional Guide</div>
+      <div class="item"><i class="fa-solid fa-car"></i> Car</div>
+      <div class="item"><i class="fa-solid fa-route"></i> Transfer</div>
+    </div>
+  </div>
+
+  <div class="price-badge">Price: from 20 AZN / person</div>
+</div>
+
+<style>
+.iceriseher-bigbox-content {
+  background: #fffef8;
+  border-radius: 32px;
+  box-shadow: 0 10px 34px #a67c0018, 0 2px 8px #FFD70022;
+  padding: 46px 38px 38px 38px;
+  max-width: 680px;
+  margin: 40px auto 0 auto;
+  position: relative;
+  z-index: 2;
+  border: 1.5px solid #ffe394;
+}
+
+.iceriseher-bigbox-content h2 {
+  text-align: center;
+  font-size: 2.2em;
+  color: #bb8900;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin-bottom: 18px;
+}
+
+.iceriseher-bigbox-content p {
+  color: #444;
+  font-size: 1.14em;
+  line-height: 1.7;
+  margin-bottom: 13px;
+  text-align: center;
+}
+
+.tour-feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 32px 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+.tour-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.13em;
+  background: #fffbe6;
+  border-radius: 14px;
+  padding: 12px 34px 12px 18px;
+  box-shadow: 0 2px 8px #ffd70029;
+  font-weight: 500;
+  color: #222;
+  min-width: 210px;
+  max-width: 410px;
+  width: 100%;
+  transition: box-shadow 0.17s, background 0.17s;
+  justify-content: center;
+}
+
+.tour-feature-list li:hover {
+  background: #FFD70022;
+  box-shadow: 0 6px 14px #FFD70036;
+}
+
+.tour-feature-list .icon {
+  font-size: 1.35em;
+  color: #FFD700;
+  display: flex;
+  align-items: center;
+  width: 32px;
+  justify-content: center;
+}
+
+.tour-feature-list li:last-child .icon {
+  color: #25d366;
+}
+
+.tour-feature-list .text {
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp-link {
+  color: #25d366;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.16s;
+  margin-left: 3px;
+}
+
+.whatsapp-link:hover {
+  text-decoration: underline;
+  color: #128C7E;
+}
+
+/* Included 3'lü yatay kutucuklar */
+.included-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.included-label {
+  font-size: 1.15em;
+  color: #28c76f;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.included-label i {
+  color: #28c76f;
+}
+
+.included-list-horizontal {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.included-list-horizontal .item {
+  background: #e7fbe7;
+  color: #2a7d44;
+  font-size: 1em;
+  border-radius: 10px;
+  padding: 10px 28px 10px 14px;
+  margin: 2px 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px #2a7d4420;
+  min-width: 120px;
+  justify-content: center;
+  border: 1.1px solid #b3efc7;
+}
+
+.included-list-horizontal i {
+  color: #28c76f;
+  font-size: 1.13em;
+}
+
+.price-badge {
+  background: #FFD700;
+  color: #222;
+  font-weight: bold;
+  font-size: 1.18em;
+  padding: 13px 42px;
+  border-radius: 18px;
+  margin: 48px auto 0 auto;
+  box-shadow: 0 2px 10px #FFD70028;
+  letter-spacing: 1.1px;
+  display: block;
+  width: fit-content;
+  text-align: center;
+  border: 1.5px solid #ffe394;
+}
+
+@media (max-width: 900px) {
+  .iceriseher-bigbox-content {
+    padding: 30px 9vw 30px 9vw;
+    max-width: 98vw;
+  }
+  .tour-feature-list li {
+    padding: 12px 10vw 12px 4vw;
+    max-width: 97vw;
+  }
+  .included-list-horizontal {
+    gap: 10px;
+  }
+  .included-list-horizontal .item {
+    font-size: 0.99em;
+    padding: 9px 12px 9px 8px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .iceriseher-bigbox-content {
+    padding: 19px 1.5vw 19px 1.5vw;
+    border-radius: 18px;
+  }
+  .iceriseher-bigbox-content h2 {
+    font-size: 1.27em;
+    margin-bottom: 11px;
+  }
+  .tour-feature-list li {
+    font-size: 0.97em;
+    padding: 9px 7vw 9px 3vw;
+    min-width: 110px;
+    max-width: 99vw;
+  }
+  .included-row {
+    margin-top: 17px;
+  }
+  .included-label {
+    font-size: 1em;
+    margin-bottom: 7px;
+  }
+  .included-list-horizontal {
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+    align-items: center;
+  }
+  .included-list-horizontal .item {
+    font-size: 0.97em;
+    padding: 7px 9vw 7px 7vw;
+  }
+  .price-badge {
+    font-size: 0.99em;
+    padding: 9px 5vw;
+    border-radius: 11px;
+    margin-top: 30px;
+  }
+}
+</style>
+      <!-- Modal Gallery -->
+      <div id="modalGallery" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(10,10,10,0.85);align-items:center;justify-content:center;">
+        <span style="position:absolute;top:36px;right:52px;font-size:2.7rem;color:#FFD700;cursor:pointer;font-weight:900;z-index:10010;" onclick="closeModal()">&times;</span>
+        <button class="slider-arrow left" style="left:5vw;top:50%;font-size:2.5rem;" onclick="modalSlide(-1)"><i class="fa fa-angle-left"></i></button>
+        <img id="modalMainPhoto" style="max-width:82vw;max-height:84vh;border-radius:28px;border:5px solid #FFD700;box-shadow:0 8px 48px #FFD70033;background:#fffbe6;display:block;margin:auto;" src="assets/images/iceriseher/ics1.jpg" alt="Gallery Photo">
+        <button class="slider-arrow right" style="right:5vw;top:50%;font-size:2.5rem;" onclick="modalSlide(1)"><i class="fa fa-angle-right"></i></button>
+      </div>
+    </section>
+    <script>
+    // Fotoğraf dosya yolları
+    const photoList = [
+      "assets/images/iceriseher/ics1.jpg",
+      "assets/images/iceriseher/ics2.jpg",
+      "assets/images/iceriseher/ics3.jpg",
+      "assets/images/iceriseher/ics4.jpg",
+      "assets/images/iceriseher/ics5.jpg",
+      "assets/images/iceriseher/ics6.jpg"
+    ];
+    let current = 0;
+    let autoInterval = null;
+
+    function selectPhoto(idx, stopAuto) {
+      current = idx;
+      document.getElementById('main-photo').src = photoList[current];
+      document.querySelectorAll('.thumb').forEach((img, i) => {
+        if (i === current) img.classList.add('selected');
+        else img.classList.remove('selected');
+      });
+      if(stopAuto) stopAutoSlide();
+    }
+    function slidePhoto(dir, stopAuto) {
+      current += dir;
+      if (current < 0) current = photoList.length - 1;
+      if (current >= photoList.length) current = 0;
+      selectPhoto(current, stopAuto);
+    }
+
+    // Otomatik slayt
+    function autoSlide() {
+      autoInterval = setInterval(() => {
+        slidePhoto(1);
+      }, 3000);
+    }
+    function stopAutoSlide() {
+      clearInterval(autoInterval);
+      autoInterval = null;
+    }
+    // Başlat
+    autoSlide();
+
+    // Mouse üzerine gelince otomatik durdur
+    document.querySelector('.iceriseher-gallery-slider').addEventListener('mouseenter', stopAutoSlide);
+    document.querySelector('.iceriseher-gallery-slider').addEventListener('mouseleave', function(){
+      if(!autoInterval) autoSlide();
+    });
+
+    // Modal gallery
+    function openModal() {
+      document.getElementById('modalGallery').style.display='flex';
+      document.getElementById('modalMainPhoto').src = photoList[current];
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      document.getElementById('modalGallery').style.display='none';
+      document.body.style.overflow = "";
+    }
+    function modalSlide(dir) {
+      current += dir;
+      if (current < 0) current = photoList.length - 1;
+      if (current >= photoList.length) current = 0;
+      document.getElementById('modalMainPhoto').src = photoList[current];
+      selectPhoto(current, true);
+    }
+    // Küçük görsele tıklayınca modalda da güncelle
+    document.querySelectorAll('.thumb').forEach((img, i) => {
+      img.onclick = function() { selectPhoto(i, true); };
+    });
+
+    // Klavyeyle slayt
+    document.addEventListener("keydown", function(e){
+      if(document.getElementById('modalGallery').style.display==='flex') {
+        if(e.key === "ArrowLeft") modalSlide(-1);
+        if(e.key === "ArrowRight") modalSlide(1);
+        if(e.key === "Escape") closeModal();
+      }
+    });
+    // Modal dışına tıklayınca kapat
+    document.getElementById('modalGallery').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
+    });
+    </script>
+  </main>
+  <footer class="site-footer">
+    &copy; 2025 Baku Tours. All rights reserved.
+  </footer>
+</body>
+</html>

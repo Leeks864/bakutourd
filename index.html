@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baku Tours | Explore Azerbaijan</title>
+  <meta name="description" content="Discover Baku and Azerbaijan with certified guides. Explore our tours, book safely, and experience unforgettable journeys.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:description" content="Discover Baku and Azerbaijan with certified guides. Explore our tours, book safely, and experience unforgettable journeys.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:800,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('assets/images/qehbe.png') top center/cover no-repeat #FFD700;
+  background-attachment: fixed;
+  color: #181818;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.topbar {
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 100px;
+  background: #fffbe6;
+  box-shadow: 0 4px 24px #18181813;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  border-bottom: 2px solid #FFD70022;
+}
+.topbar-corner {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  z-index: 12;
+}
+.topbar-left {
+  left: 0;
+  padding-left: 32px;
+}
+.topbar-right {
+  right: 0;
+  padding-right: 32px;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-title img {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #FFD700;
+  border: 2.5px solid #18181822;
+}
+.logo-title span {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  line-height: 1;
+}
+.main-nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 11;
+  position: relative;
+}
+.main-nav a {
+  background: #fffbe6;
+  color: #181818;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #18181812;
+  text-decoration: none;
+  border: none;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.main-nav a.active,
+.main-nav a:hover {
+  background: #FFD700;
+  color: #181818;
+  box-shadow: 0 6px 18px #FFD70033;
+}
+.lang-selector-dropdown select {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  padding: 7px 18px;
+  border-radius: 6px;
+  background: #252525;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  outline: none;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+.lang-selector-dropdown select:focus {
+  border: 2px solid #FFD700; background: #333;
+}
+
+/* Main content sabit genişlik ve responsive */
+#site-main-container, main {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0;
+  box-sizing: border-box;
+}
+
+/* Footer copyright bar */
+.site-footer {
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fffbe6;
+  color: #222;
+  text-align: center;
+  padding: 18px 0 12px 0;
+  font-size: 1em;
+  border-top: 1.5px solid #FFD70044;
+  box-shadow: 0 -2px 18px #FFD70028;
+  z-index: 100;
+}
+/* Responsive */
+@media (max-width: 1100px) {
+  #site-main-container, main {
+    max-width: 98vw;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .main-nav a { padding: 11px 18px; font-size: 1em; }
+}
+@media (max-width: 900px) {
+  .topbar { height: auto; flex-direction: column; align-items: stretch; min-height: unset; padding: 0; }
+  .topbar-corner { position: static; padding: 0; margin: 7px 0; height: auto; justify-content: flex-start; }
+  .main-nav { justify-content: center; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+  .logo-title { margin-bottom: 8px; }
+  .logo-title span { font-size: 1.3rem; }
+  .logo-title img { width: 36px; height: 36px; }
+}
+@media (max-width: 600px) {
+  .topbar-left { padding-left: 8px; }
+  .topbar-right { padding-right: 8px; }
+  main { padding: 18px 3vw; }
+}
+.about-section-custom {
+  background:#fff;
+  border-radius: 36px;
+  box-shadow: 0 10px 38px #FFD70028, 0 3px 18px #18181819;
+  max-width: 850px;
+  width: 100%;
+  margin: 48px auto 48px auto;
+  padding: 44px 42px 36px 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  align-items: center;
+  border: 2.5px solid #FFE066;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.7s;
+}
+.about-section-custom .about-image-col {
+  flex: 1 1 220px;
+  min-width: 180px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.about-section-custom .about-image-col img {
+  width: 170px;
+  height: 170px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px #FFD70019, 0 2px 8px #18181811;
+  border: 2.5px solid #FFD70044;
+  background: #ffD700;
+  margin-top: -275px
+}
+.about-section-custom .about-image-col .about-badge {
+  margin-top: 10px;
+  background: #FFD700;
+  color: #222;
+  padding: 7px 18px;
+  border-radius: 11px;
+  font-size: 1.07em;
+  font-weight: 800;
+  box-shadow: 0 2px 10px #FFD70022;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  letter-spacing: 0.03em;
+}
+.about-section-custom .about-content-col {
+  flex: 2 1 340px;
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-section-custom .about-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 8px;
+  letter-spacing: 1.3px;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+}
+.about-section-custom .about-desc {
+  font-size: 1.18em;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.about-section-custom .about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 35px;
+  margin-top: 9px;
+}
+.about-section-custom .about-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fffbe6;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 1.04em;
+  font-weight: 600;
+  color: #181818;
+  box-shadow: 0 2px 10px #FFD70021;
+}
+.about-section-custom .about-feature-item i {
+  color: #FFD700;
+  font-size: 1.3em;
+}
+@media (max-width: 900px) {
+  .about-section-custom {
+    flex-direction: column;
+    padding: 32px 16px 24px 16px;
+    gap: 20px;
+  }
+  .about-section-custom .about-image-col img { width: 120px; height: 120px; }
+  .about-section-custom .about-title { font-size: 1.4rem; }
+}
+@media (max-width: 600px) {
+  .about-section-custom { padding: 16px 5vw 12px 5vw;}
+  .about-section-custom .about-image-col img { width: 90px; height: 90px;}
+}
+  </style>
+</head>
+<body>
+  <header>
+  <div class="topbar">
+    <div class="topbar-corner topbar-left">
+      <div class="logo-title">
+        <img src="assets/images/tour1.jpg" alt="Baku Tours Logo">
+        <span>Baku Tours</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="#" data-section="home" class="active"><i class="fa fa-home"></i> Home</a>
+      <a href="#" data-section="tours"><i class="fa fa-map-signs"></i> Tours</a>
+      <a href="#" data-section="contact"><i class="fa fa-envelope"></i> Contact</a>
+      <a href="#" data-section="about"><i class="fa fa-info-circle"></i> About</a>
+    </nav>
+    <div class="topbar-corner topbar-right">
+      <div class="lang-selector-dropdown">
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="tr">Türkçe</option>
+          <option value="az">Azərbaycanca</option>
+          <option value="ru">Русский</option>
+          <option value="ar">العربية</option>
+          <option value="zh-CN">中文</option>
+          <option value="ur">اردو</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  </header>
+  <main>
+    <section id="home" class="active">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 0 40px 0;">
+        <div style="
+          background: #fffef5;
+          border-radius: 32px;
+          box-shadow: 0 8px 32px #18181818;
+          padding: 48px 38px 38px 38px;
+          max-width: 700px;
+          width:100%;
+          margin: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+          border: 2.5px solid #FFE066;
+          align-items: center;
+          position: relative;
+          overflow: hidden;
+        ">
+          <h2 style="margin:0 0 12px 0; font-size:2.7rem; font-weight:900; color:#222; letter-spacing:1.4px;">
+            Baku Tours: Your Adventure Starts Here
+          </h2>
+          <p style="font-size:1.22em; color:#444; margin-bottom: 10px; line-height:1.7; text-align:center;">
+            Licensed guides. Unique routes. Memories for a lifetime.<br>
+            Join private or group tours of the Old City, Absheron peninsula, and more. <br>
+            <span style="background: #ffe066; border-radius: 8px; padding: 2px 10px; font-weight:600;">Safe. Multilingual. Unforgettable.</span>
+          </p>
+          <a href="#" data-section="tours" class="home-cta-btn" style="margin-top:6px;background:#ffe066;color:#222;font-weight:800;padding:15px 44px;border-radius:12px;text-decoration:none;font-size:1.18em;box-shadow:0 4px 14px #ffec992a;transition:background 0.18s, color 0.18s;display:inline-block;border:2.5px solid #FFE066;"
+            onclick="document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));document.querySelector('nav a[data-section=tours]').classList.add('active');document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));document.getElementById('tours').classList.add('active');return false;">
+            Explore Tours
+          </a>
+        </div>
+        <div style="display:flex;gap:36px;flex-wrap:wrap;justify-content:center;max-width:1150px;margin:0 auto;">
+          <!-- Card 1 -->
+          <div style="background:#fff; border-radius:18px;box-shadow:0 6px 24px #ffe06618;max-width:320px;min-width:240px;flex:1 1 240px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;margin-bottom:24px;border:2.5px solid #ffe06633;transition:transform 0.16s;">
+            <img src="assets/images/iceriseher/ics1.jpg" alt="Old City Tour" style="width:100%;height:148px;object-fit:cover;background:#eee;">
+            <div style="font-size:1.22em;font-weight:900;margin:16px 0 8px 0;color:#222;text-align:center;letter-spacing:0.8px;">Old City Tour</div>
+            <div style="font-size:1.05em;color:#444;min-height:48px;margin-bottom:10px;padding:0 16px;text-align:center;">
+              Discover Baku's timeless walled city: UNESCO heritage and stunning architecture.
+            </div>
+            <a href="iceriseher.html" style="margin:14px auto 20px auto;background:#ffe066;color:#222;font-weight:700;padding:10px 32px;border-radius:10px;text-decoration:none;transition:background 0.18s, color 0.18s;display:inline-block;font-size:1.08em;border:2px solid #ffe066;">See Details</a>
+          </div>
+          <!-- Card 2 -->
+          <div style="background:#fff; border-radius:18px;box-shadow:0 6px 24px #ffe06618;max-width:320px;min-width:240px;flex:1 1 240px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;margin-bottom:24px;border:2.5px solid #ffe06633;transition:transform 0.16s;">
+            <img src="assets/images/absheron/abs1.jpg" alt="Absheron Tour" style="width:100%;height:148px;object-fit:cover;background:#eee;">
+            <div style="font-size:1.22em;font-weight:900;margin:16px 0 8px 0;color:#222;text-align:center;letter-spacing:0.8px;">Absheron Tour</div>
+            <div style="font-size:1.05em;color:#444;min-height:48px;margin-bottom:10px;padding:0 16px;text-align:center;">
+              Absheron Peninsula: Fire Temple, Burning Mountain, coastal castles, and the Caspian Sea.
+            </div>
+            <a href="absheron.html" style="margin:14px auto 20px auto;background:#ffe066;color:#222;font-weight:700;padding:10px 32px;border-radius:10px;text-decoration:none;transition:background 0.18s, color 0.18s;display:inline-block;font-size:1.08em;border:2px solid #ffe066;">See Details</a>
+          </div>
+          <!-- Card 3 -->
+          <div style="background:#fff; border-radius:18px;box-shadow:0 6px 24px #ffe06618;max-width:320px;min-width:240px;flex:1 1 240px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;margin-bottom:24px;border:2.5px solid #ffe06633;transition:transform 0.16s;">
+            <img src="assets/images/tour1.jpg" alt="Custom Tours" style="width:100%;height:148px;object-fit:cover;background:#eee;">
+            <div style="font-size:1.22em;font-weight:900;margin:16px 0 8px 0;color:#222;text-align:center;letter-spacing:0.8px;">Custom Tours</div>
+            <div style="font-size:1.05em;color:#444;min-height:48px;margin-bottom:10px;padding:0 16px;text-align:center;">
+              Create an adventure that’s uniquely yours! Private, family, and group tours on demand.
+            </div>
+            <a href="#" data-section="contact" style="margin:14px auto 20px auto;background:#ffe066;color:#222;font-weight:700;padding:10px 32px;border-radius:10px;text-decoration:none;transition:background 0.18s, color 0.18s;display:inline-block;font-size:1.08em;border:2px solid #ffe066;"
+              onclick="document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));document.querySelector('nav a[data-section=contact]').classList.add('active');document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));document.getElementById('contact').classList.add('active');return false;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="tours">
+      <div class="tours-grid" id="tours-container">
+        <!-- Tur kartları main.js ile dinamik gelecek -->
+      </div>
+    </section>
+    <section id="contact" style="margin-top: 0;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="background: #fffbe6; border-radius: 15px; box-shadow: 0 4px 20px #18181813; padding: 32px 30px 28px 30px; max-width: 440px; width:100%; margin: 50px; display: flex; flex-direction: column; gap: 20px; border: 2px solid #18181813; align-items: flex-start;">
+          <h2 style="margin-bottom: 24px; margin-top:0; font-size:2.1rem; font-weight:800; color:#181818; letter-spacing:1px; align-self:center;">
+            Contact
+          </h2>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="background: #25D36633; color: #181818; border-radius: 11px; padding: 12px 13px 11px 13px; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 7px #18181814;">
+              <i class="fa fa-whatsapp"></i>
+            </span>
+            <div style="display:flex; flex-direction:column;">
+              <a href="https://wa.me/994775752626" target="_blank" rel="noopener" style="color:#181818; font-size:18px; font-weight:600; text-decoration:none;">
+                WhatsApp: +994 77 575 26 26
+              </a>
+              <span style="font-size:13px; color:#777;">Direkt WhatsApp mesajı</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="background: #FFD70033; color: #181818; border-radius: 11px; padding: 12px 13px 11px 13px; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 7px #18181814;">
+              <i class="fa fa-phone"></i>
+            </span>
+            <a href="tel:+994775752626" style="color:#181818; font-size:18px; font-weight:600; text-decoration:none;">
+              Ara: +994 77 575 26 26
+            </a>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="background: #FFD70033; color: #181818; border-radius: 11px; padding: 12px 14px 11px 14px; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 7px #18181814;">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <a href="mailto:bakutours2025@gmail.com"
+              style="color:#181818; font-size:18px; font-weight:600; text-decoration:none;word-break:break-all;">
+              bakutours2025@gmail.com
+            </a>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="background: #FFD70033; color: #181818; border-radius: 11px; padding: 12px 14px 11px 14px; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 7px #18181814;">
+              <i class="fa fa-map-marker-alt"></i>
+            </span>
+            <div style="display:flex; flex-direction:column;">
+              <a href="https://maps.app.goo.gl/agy3ZeRxWR7k44dx7" target="_blank" rel="noopener"
+                style="color:#B80000; font-size:18px; font-weight:600; text-decoration:underline;">
+                Resul Rza 27, Baku
+              </a>
+              <span style="font-size:13px; color:#777; margin-top:4px;">
+                <i class="fa fa-map"></i>
+                <a href="https://maps.app.goo.gl/agy3ZeRxWR7k44dx7" target="_blank" rel="noopener"
+                  style="color:#B80000; font-size:15px; text-decoration:underline;">
+                  View on Google Maps
+                </a>
+              </span>
+            </div>
+          </div>
+          <div style="margin-top:20px; border-radius:13px; overflow:hidden; box-shadow:0 2px 14px #1818181a; border:2px solid #FFD70044; width:100%;">
+            <a href="https://maps.app.goo.gl/agy3ZeRxWR7k44dx7" target="_blank" rel="noopener" style="display:block;">
+              <iframe
+                src="https://www.google.com/maps?q=40.372867,49.838573&hl=en&z=18&output=embed"
+                width="100%" height="200" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </a>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-top: 3px;">
+            <span style="background: #FFD70033; color: #181818; border-radius: 11px; padding: 12px 15px 11px 15px; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 7px #18181814;">
+              <i class="fa fa-instagram"></i>
+            </span>
+            <a href="https://instagram.com/bakutours" target="_blank" rel="noopener"
+              style="color:#181818; font-size:18px; font-weight:600; text-decoration:none;">
+              @bakutours
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="about-section-custom">
+        <div class="about-image-col">
+          <img src="assets/images/tour1.jpg" alt="Baku Tours Office">
+          <div class="about-badge"><i class="fa fa-certificate"></i> Certified Guides</div>
+          <div class="about-badge"><i class="fa fa-globe"></i> Multilingual Team</div>
+        </div>
+        <div class="about-content-col">
+          <div class="about-title">
+            WHO WE ARE
+          </div>
+          <div class="about-desc">
+            <strong>Baku Tours</strong> is your gateway to exploring Azerbaijan with passion, expertise, and local warmth. Our mission is to provide unforgettable journeys across Baku, Absheron, and beyond—led by licensed guides who love sharing the stories, history, and vibrant culture of our country.
+            <br><br>
+            Whether you're seeking a private tour through the ancient streets of the Old City, a group adventure to natural wonders, or a family-friendly day trip, we ensure every guest feels welcomed and safe.
+          </div>
+          <div class="about-features">
+            <div class="about-feature-item"><i class="fa fa-users"></i> Private & Group Tours</div>
+            <div class="about-feature-item"><i class="fa fa-shield-halved"></i> Licensed & Insured</div>
+            <div class="about-feature-item"><i class="fa fa-language"></i> Tours in 6+ Languages</div>
+            <div class="about-feature-item"><i class="fa fa-calendar-check"></i> Easy Booking</div>
+            <div class="about-feature-item"><i class="fa fa-star"></i> 5-Star Service</div>
+            <div class="about-feature-item"><i class="fa fa-map-location-dot"></i> Unique Local Routes</div>
+          </div>
+          <div class="about-desc" style="font-size:.96em;color:#777;margin-top:8px;">
+            <i class="fa fa-heart" style="color:#FFD700"></i>  We are proud to welcome guests from all over the world. Let us show you the heart of Azerbaijan—safely, comfortably, and with a personal touch.
+          </div>
+        </div>
+      </div>
+      <div class="about-gallery-box">
+        <div class="about-gallery">
+          <div class="about-gallery-title">
+            <i class="fa fa-images"></i> Our Tours in Photos
+          </div>
+          <div class="about-gallery-grid">
+            <img src="assets/images/iceriseher/ics1.jpg"> 
+            <img src="assets/images/absheron/abs1.jpg">
+            <img src="assets/images/quba-sahdag/qub1.jpg">
+            <img src="assets/images/samaxi-qabala/sam1.jpg">
+            <img src="assets/images/lenkeran/len1.jpg">=4
+            <img src="assets/images/iceriseher/ics1.jpg">
+            <img src="assets/images/absheron/abs1.jpg">
+            <img src="assets/images/quba-sahdag/qub1.jpg">
+            <img src="assets/images/samaxi-qabala/sam1.jpg">
+            <img src="assets/images/lenkeran/len1.jpg">
+            <!-- ... -->
+          </div>
+          <div id="gallery-modal" class="gallery-modal">
+            <span class="gallery-modal-close">&times;</span>
+            <span class="gallery-modal-arrow gallery-modal-arrow-left">&#8592;</span>
+            <img class="gallery-modal-content" id="gallery-modal-img" src="" alt="">
+            <span class="gallery-modal-arrow gallery-modal-arrow-right">&#8594;</span>
+            <div id="gallery-modal-caption"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    &copy; 2025 Baku Tours. All rights reserved.
+  </footer>
+  <!-- Navigation/section switching script -->
+  <script>
+    // Navigation handler for changing sections
+    document.addEventListener('DOMContentLoaded', function() {
+      // Main navigation link click
+      document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Remove active from all
+          document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+          this.classList.add('active');
+          // Hide all sections
+          document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+          var section = this.getAttribute('data-section');
+          if (section) {
+            document.getElementById(section).classList.add('active');
+          }
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      });
+      // Hash navigation (if link is like index.html#contact)
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const target = document.getElementById(id);
+        if (target) {
+          document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+          target.classList.add('active');
+          document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+          const navLink = document.querySelector('.main-nav a[data-section="' + id + '"]');
+          if (navLink) navLink.classList.add('active');
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  </script>
+  <script src="assets/js/main.js"></script>
+  <div id="gallery-modal" class="gallery-modal">
+    <span class="gallery-modal-close">&times;</span>
+    <img class="gallery-modal-content" id="gallery-modal-img" src="" alt="">
+    <div id="gallery-modal-caption"></div>
+  </div>
+</body>
+</html>
